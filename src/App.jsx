@@ -5,7 +5,20 @@ function App() {
 
   //posts array contenente i posts mentre usePosts la funzione che permette di aggiornarlo
   const [posts, setPosts] = useState([])
-  const [newPost, setNewPost] = useState;
+  const [newPost, setNewPost] = useState('');
+
+
+  const handleNewPost = (e) => { // (e) è l'evento che viene passato quando l'utente interagisce con l'input
+    setNewPost(e.target.value) //(e.target.value) è il valore attuale dell'input
+  }
+
+
+  //funzione che gestisce il momento in cui l'utente invia il modulo
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setPosts((prevPosts) => [...prevPosts, newPost]);
+    setNewPost('')
+  }
 
   return (
     <>
